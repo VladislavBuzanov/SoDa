@@ -7,7 +7,7 @@ def tokenize(text):
     tokens = word_tokenize(text)
     tokens = [i for i in tokens if (i not in string.punctuation)]
     stop_words = stopwords.words('russian')
-    stop_words.extend(['что', 'это', 'так', 'вот', 'быть', 'в', '—', '–', 'к', 'на', '...'])
+    stop_words.extend(['что', 'это', 'так', 'вот', 'быть', 'в', '—', '–', 'к', 'на', '...', 'из'])
     stop_words.remove('как')
 
     tokens = [i for i in tokens if (i.lower() not in stop_words)]
