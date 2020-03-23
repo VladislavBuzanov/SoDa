@@ -1,6 +1,7 @@
 import pytesseract
+from server import Config
 
-pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = Config.tesseract_path
 
 
 def rec_text(image):

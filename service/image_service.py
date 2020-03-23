@@ -1,4 +1,5 @@
 import service.t_solver as solver
+import service.answer_service as answerer
 from dao.repository import Dao
 
 dao = Dao()
@@ -17,6 +18,7 @@ def handle_image(file):
         for row in result:
             recommendation.append(row[1])
             quality += int(row[2])
+    quality = answerer.handle(quality)
     print(recommendation)
     print(quality)
-    return
+    return [quality, recommendation]
