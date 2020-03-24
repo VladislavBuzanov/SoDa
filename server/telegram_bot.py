@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import telebot
-from telebot import apihelper
-import service.text_service as text
+
 import service.image_service as image
+import service.text_service as text
 from server import Config
 
 bot = telebot.TeleBot(Config.token)
@@ -23,13 +23,13 @@ def response_image(message):
 
         file_info = bot.get_file(message.photo[len(message.photo) - 1].file_id)
         downloaded_file = bot.download_file(file_info.file_path)
-        #print(file_info)
-        #print(file_info.file_path)
+        # print(file_info)
+        # print(file_info.file_path)
         src = Config.images_path + file_info.file_path
         with open(src, 'wb') as new_file:
             new_file.write(downloaded_file)
-        #bot.reply_to(message, "Фото добавлено")
-        bot.reply_to(message,image.handle_image(src)[0])
+        # bot.reply_to(message, "Фото добавлено")
+        bot.reply_to(message, image.handle_image(src)[0])
 
     except Exception as e:
         bot.reply_to(message, e)

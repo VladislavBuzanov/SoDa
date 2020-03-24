@@ -40,7 +40,7 @@ class Dao:
                 sql = "SELECT DISTINCT it.title, ingredient.description, ingredient.utility_coefficient FROM ingredient LEFT JOIN ingredient_title it on ingredient.id = it.id WHERE it.title LIKE '%" + word + "%'"
                 result_set = self.execute(sql)
                 if result_set:
-                    print(result_set)
+                    # print(result_set)
                     return result_set
 
         return []
