@@ -7,7 +7,7 @@ class Result(object):
         self.order = numb
 
     def __str__(self):
-        return self.name + "\n" + self.recommendation + "\n" + str(self.coefficient) + "\n" + str(self.order)
+        return self.name + "\n" + self.recommendation + "\n" + str(self.coefficient)
 
     def __eq__(self, other):
         if type(self) == type(other):

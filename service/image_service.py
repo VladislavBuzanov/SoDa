@@ -18,16 +18,16 @@ def handle_image(file):
             i += 1
             res = result.Result(result_str[0], i)
             list_rec.append(res)
-            print(res)
+            # print(res)
     list_rec = set(list_rec)
     quality = calculate_quality(list_rec, i)
-    quality = answerer.handle(quality)
     print(quality)
+    quality = answerer.handle(quality)
     return [quality, list_rec]
 
 
 def calculate_quality(list_rec, i):
     result_quality = 0.0
     for subj in list_rec:
-        result_quality += (i - subj.order + 1) * subj.coefficient
-    return result_quality / i
+        result_quality += ((i - subj.order + 1) * subj.coefficient * 1.0) / (i + 1)
+    return result_quality
